@@ -7,6 +7,5 @@
 import {
   AppRegistry,
 } from 'react-native';
-import App from './App';
-
-AppRegistry.registerComponent('LearnRN', () => App);
+import AppStateSubscription from './AppStateSubscription';
+AppRegistry.registerComponent('AppStateSubscription', () => AppStateSubscription);
