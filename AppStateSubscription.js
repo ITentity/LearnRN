@@ -4,14 +4,13 @@
  * @flow
  */
 
- 'use strict';
 
  const React = require('react');
  const ReactNative = require('react-native');
  const {
    AppState,
    Text,
-   View
+   View,
  } = ReactNative;
 
  export default class AppStateSubscription extends React.Component {
@@ -32,11 +31,11 @@
    }
 
    _handleMemoryWarning = () => {
-     this.setState({memoryWarnings: this.state.memoryWarnings + 1});
+     this.setState({ memoryWarnings: this.state.memoryWarnings + 1 });
    };
 
    _handleAppStateChange = (appState) => {
-     var previousAppStates = this.state.previousAppStates.slice();
+     const previousAppStates = this.state.previousAppStates.slice();
      previousAppStates.push(this.state.appState);
      this.setState({
        appState,
@@ -45,25 +44,32 @@
    };
 
    render() {
-     if (this.props.showMemoryWarnings) {
-       return (
-         <View>
-           <Text>{this.state.memoryWarnings}</Text>
-         </View>
-       );
-     }
-     if (this.props.showCurrentOnly) {
-       return (
-         <View>
-           <Text>{this.state.appState}</Text>
-         </View>
-       );
-     }
      return (
-       <View>
-         <Text>{JSON.stringify(this.state.previousAppStates)}</Text>
+       <View style={{ marginTop: 50 }}>
+         <Text>zhaozx1{this.state.memoryWarnings}</Text>
+         <Text>zhaozx2{this.state.appState}</Text>
+         <Text>zhaozx3{JSON.stringify(this.state.previousAppStates)}</Text>
        </View>
      );
+    //  if (this.props.showMemoryWarnings) {
+    //    return (
+    //      <View style={{marginTop: 50}}>
+    //        <Text>zhaozx1{this.state.memoryWarnings}</Text>
+    //      </View>
+    //    );
+    //  }
+    //  if (this.props.showCurrentOnly) {
+    //    return (
+    //      <View style={{marginTop: 100}}>
+    //        <Text>zhaozx2{this.state.appState}</Text>
+    //      </View>
+    //    );
+    //  }
+    //  return (
+    //    <View style={{marginTop: 150}}>
+    //      <Text>zhaozx3{JSON.stringify(this.state.previousAppStates)}</Text>
+    //    </View>
+    //  );
    }
  }
 
@@ -73,21 +79,21 @@
    {
      title: 'AppState.currentState',
      description: 'Can be null on app initialization',
-     render() { return <Text>{AppState.currentState}</Text>; }
+     render() { return <Text>{AppState.currentState}</Text>; },
    },
    {
      title: 'Subscribed AppState:',
      description: 'This changes according to the current state, so you can only ever see it rendered as "active"',
-     render(): React.Element<any> { return <AppStateSubscription showCurrentOnly={true} />; }
+     render(): React.Element<any> { return <AppStateSubscription showCurrentOnly={true} />; },
    },
    {
      title: 'Previous states:',
-     render(): React.Element<any> { return <AppStateSubscription showCurrentOnly={false} />; }
+     render(): React.Element<any> { return <AppStateSubscription showCurrentOnly={true} />; },
    },
    {
      platform: 'ios',
      title: 'Memory Warnings',
      description: 'In the IOS simulator, hit Shift+Command+M to simulate a memory warning.',
-     render(): React.Element<any> { return <AppStateSubscription showMemoryWarnings={true} />; }
+     render(): React.Element<any> { return <AppStateSubscription showMemoryWarnings={true} />; },
    },
  ];

@@ -4,8 +4,9 @@
  * @flow
  */
 
-import {
-  AppRegistry,
-} from 'react-native';
-import AppStateSubscription from './AppStateSubscription';
-AppRegistry.registerComponent('AppStateSubscription', () => AppStateSubscription);
+ import {
+   AppRegistry,
+ } from 'react-native';
+ import AppStateSubscription from './AppStateSubscription';
+
+ AppRegistry.registerComponent('LearnRN', () => AppStateSubscription);
