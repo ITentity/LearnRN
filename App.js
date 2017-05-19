@@ -8,13 +8,17 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
+  TouchableWithoutFeedback,
 } from 'react-native';
+import { add } from './flow';
 
 export default class App extends Component {
   render() {
     return (
       <View>
-        <Text>111</Text>
+        <TouchableWithoutFeedback onPress={() => alert(add(a, b))}>
+          <Text>111</Text>
+        </TouchableWithoutFeedback>
       </View>
     );
   }

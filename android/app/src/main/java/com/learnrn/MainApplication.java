@@ -11,6 +11,7 @@ import com.facebook.soloader.SoLoader;
 import io.fabric.sdk.android.Fabric;
 import java.util.Arrays;
 import java.util.List;
+import com.smixx.fabric.FabricPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -23,6 +24,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
+          new FabricPackage(),
           new MainReactPackage()
       );
     }

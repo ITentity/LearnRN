@@ -154,6 +154,7 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
         transitive = true;
     }
+    compile project(':react-native-fabric')         // react-native-fabric
 }
 
 // Run this once to be able to run the application with BUCK
