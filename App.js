@@ -9,6 +9,7 @@ import {
   View,
   Text,
   TouchableWithoutFeedback,
+  TouchableOpacity,
 } from 'react-native';
 
 export default class App extends Component {
@@ -37,6 +38,11 @@ export default class App extends Component {
             <Text>111</Text>
           </View>
         </TouchableWithoutFeedback>
+        <TouchableOpacity onPress={() => alert(222)}>
+          <View style={{ marginTop: 30 }}>
+            <Text>222</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }
