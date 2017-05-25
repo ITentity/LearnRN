@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 
 export default class ChatScreen extends React.Component {
-
   static navigationOptions = ({ navigation }) => ({
     title: `Chat with ${navigation.state.params.user}`,
   });

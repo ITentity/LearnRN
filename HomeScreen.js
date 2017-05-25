@@ -2,32 +2,24 @@ import React from 'react';
 import {
   AppRegistry,
   Text,
-  View,
-  Button,
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';    // StackNavigator 栈导航（对场景进行栈管理）
+import { TabNavigator, StackNavigator } from 'react-navigation';    // TabNavigator TAB导航（对场景进行TAB管理）
+import RecentChatsScreen from './RecentChatsScreen';
+import AllContactsScreen from './AllContactsScreen';
 import ChatScreen from './ChatScreen';
 
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome',
-  };
-  render() {
-    const { navigate } = this.props.navigation;
-    return (
-      <View>
-        <Text>Hello, Chat App!</Text>
-        <Button
-          onPress={() => navigate('Chat', { user: 'zhaozx' })}
-          title="Chat with zhaozx"
-        />
-      </View>
-    );
-  }
-}
+const MainScreenNavigator = TabNavigator({
+  zhaozx: { screen: RecentChatsScreen },
+  bingo: { screen: AllContactsScreen },
+});
+
+// Because MainScreenNavigator is being used as a screen, we can give it navigationOptions
+MainScreenNavigator.navigationOptions = {
+  title: 'My Chats',
+};
 
 const SimpleApp = StackNavigator({
-  Home: { screen: HomeScreen },
+  Home: { screen: MainScreenNavigator },      // 第一个就是显示出来的tab页面
   Chat: { screen: ChatScreen },
 });
 
