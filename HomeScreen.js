@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   AppRegistry,
-  Text,
 } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';    // TabNavigator TAB导航（对场景进行TAB管理）
 import RecentChatsScreen from './RecentChatsScreen';
@@ -25,6 +24,12 @@ const MainScreenNavigator = TabNavigator({
   {
     tabBarOptions: {
       activeTintColor: '#e91e63',
+      labelStyle: {
+        fontSize: 12,
+      },
+      style: {
+        backgroundColor: 'blue',
+      },
     },
   },
 );
