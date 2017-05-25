@@ -18,8 +18,8 @@ class HomeScreen extends React.Component {
       <View>
         <Text>Hello, Chat App!</Text>
         <Button
-          onPress={() => navigate('Chat')}
-          title="Chat with Lucy"
+          onPress={() => navigate('Chat', { user: 'zhaozx' })}
+          title="Chat with zhaozx"
         />
       </View>
     );
