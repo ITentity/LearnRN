@@ -1,60 +1,22 @@
-import React from 'react';
 import {
   AppRegistry,
 } from 'react-native';
-import { TabNavigator, StackNavigator } from 'react-navigation';    // TabNavigator TAB导航（对场景进行TAB管理）
-import RecentChatsScreen from './RecentChatsScreen';
-import AllContactsScreen from './AllContactsScreen';
-import ChatScreen from './ChatScreen';
+import { DrawerNavigator } from 'react-navigation';
+import MyHomeScreen from './MyHomeScreen';
+import MyNotificationsScreen from './MyNotificationsScreen';
 
-const MainScreenNavigator = TabNavigator({
-  zhaozx: {
-    screen: RecentChatsScreen,
-    navigationOptions: ({ navigation }) => ({
-      title: 'zhaozx chat',
-    }),
-  },
-  bingo: {
-    screen: AllContactsScreen,
-    navigationOptions: ({ navigation }) => ({
-      title: 'bingo chat',
-    }),
-  },
-},
-  {
-    tabBarOptions: {
-      activeTintColor: '#e91e63',
-      labelStyle: {
-        fontSize: 12,
-      },
-      style: {
-        backgroundColor: 'blue',
-      },
-    },
-  },
-);
-
-// Because MainScreenNavigator is being used as a screen, we can give it navigationOptions
-// MainScreenNavigator.navigationOptions = {
-//   title: 'My Chats',
-// };
-
-const SimpleApp = StackNavigator({
+const MyApp = DrawerNavigator({
   Home: {
-    screen: MainScreenNavigator,
-  },      // 第一个就是显示出来的页面
-  Chat: {
-    screen: ChatScreen,
+    screen: MyHomeScreen,
+  },
+  Notifications: {
+    screen: MyNotificationsScreen,
   },
 },
   {
-    mode: 'modal',
-    navigationOptions: {
-      headerTruncatedBackTitle: '',
-      headerTintColor: '#f00',
-    },
-  },
-);
+    drawerWidth: 200,
+    drawerPosition: 'left',
+  });
 
 
-AppRegistry.registerComponent('LearnRN', () => SimpleApp);
+AppRegistry.registerComponent('LearnRN', () => MyApp);
