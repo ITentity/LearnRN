@@ -17,7 +17,7 @@ export default class App extends Component {
   render() {
     return (
       <View>
-        <TouchableWithoutFeedback onPress={() => alert(add(a, b))}>
+        <TouchableWithoutFeedback onPress={() => alert(add(1, 2))}>
           <Text>111</Text>
         </TouchableWithoutFeedback>
       </View>
