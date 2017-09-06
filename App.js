@@ -10,7 +10,6 @@ import {
   Text,
   TouchableWithoutFeedback,
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
 import { add } from './flow';
 
 export default class App extends Component {
