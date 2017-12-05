@@ -3,22 +3,20 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   View,
   Text,
   TouchableWithoutFeedback,
+  requireNativeComponent
 } from 'react-native';
-import { add } from './flow';
+import LinearGardientButton from './ImageView';
 
 export default class App extends Component {
   render() {
     return (
       <View>
-        <TouchableWithoutFeedback onPress={() => alert(add(1, 2))}>
-          <Text>111</Text>
-        </TouchableWithoutFeedback>
+        <LinearGardientButton style={{width:100,height:200}} startColor={'yellow'} endColor={'red'}  orentation={1}/>
       </View>
     );
   }
